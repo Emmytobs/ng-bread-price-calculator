@@ -1,0 +1,48 @@
+
+<div *ngIf="!orderMode">
+  <form [formGroup]="orderForm" (ngSubmit)="addToOrder(orderForm.value)" >
+    <div>
+      <select name="breadName" formControlName="name" (blur)="addBreadSize(name.value)">
+        <option value="" disabled selected>Select bread</option>
+        <option *ngFor="let breadName of breadNames">{{breadName}}</option>
+      </select>
+      <select name="breadSize" formControlName="size">
+        <!-- Populate the breadSizes options only when a certain bread name has been selected -->
+        <option value="" disabled selected>Choose the size</option>
+        <option *ngFor="let breadSize of breadSizes">{{breadSize}}</option>
+      </select>
+      <input formControlName="quantity" type="number" placeholder="Number of loaves">
+      <!--  -->
+      <!--  -->
+      <br>
+      <br>
+      <button>Add to Order</button>
+      <!-- <br>
+      <br>
+      <button>Calculate bread amount</button> -->
+    </div>
+  </form>
+
+  <div>
+    <button (click)="orderMode = true">View Orders</button>
+  </div>
+
+</div>
+
+
+<div *ngIf="orderMode">
+  <div>
+    <button (click)="orderMode = false" >&lsaquo; Back to Orders</button>
+  </div>
+  <div *ngFor="let order of orders">
+    <p>{{order.name}}</p>
+    <p>{{order.size}} </p>
+    <p>{{order.quantity}}</p>
+    <hr>
+    <br>
+  </div>
+
+  <button [routerLink]="['/order/summary']" >Calculate Order</button>
+</div>
+
+<!-- <app-order-summary *ngIf="goToOrders()" ></app-order-summary> -->

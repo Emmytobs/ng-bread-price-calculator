@@ -1,0 +1,21 @@
+<div>
+  <div *ngFor="let order of orders">
+    <p>{{order.name}}</p>
+    <p>{{order.size}}</p>
+    <p>{{order.quantity}}</p>
+    <hr>
+    <br>
+  </div>
+</div>
+
+
+<div>
+  <div>
+    <p>Order Total : {{getOrderInfo().orderAmount}}</p>
+    <br>
+    <p>Expected Amount in sales : {{getOrderInfo().salesAmount}}</p>
+    <br>
+    <p>Estimated Profit : {{getOrderInfo().profit}}</p>
+  </div>
+  <button (click)="routeToOrders()" >Back to your order</button>
+</div>

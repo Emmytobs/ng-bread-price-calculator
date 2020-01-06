@@ -12,7 +12,7 @@ import { BreadService } from '../create-order/bread.service';
 })
 export class OrderSummaryComponent implements OnInit {
 
-  orders: IOrder[] = this.orderService.displayOrders();
+  orders = this.orderService.getOrders();
   constructor(private orderService: OrderService, private router: Router, private breadService: BreadService) { }
 
   routeToOrders() {

@@ -1,8 +1,9 @@
 <div>
   <div *ngFor="let order of orders">
-    <p>{{order.name}}</p>
-    <p>{{order.size}}</p>
-    <p>{{order.quantity}}</p>
+    <h3>{{order.name}}</h3>
+    <h5>Size: {{order.size}}</h5>
+    <h5>Quantity: {{order.quantity}} loaves</h5>
+    <p>at N{{order.purchasePrice}} per loaf</p>
     <hr>
     <br>
   </div>
@@ -11,11 +12,11 @@
 
 <div>
   <div>
-    <p>Order Total : {{getOrderInfo().orderAmount}}</p>
+    <p>Order Total : N{{getOrderInfo().orderAmount}}</p>
     <br>
-    <p>Expected Amount in sales : {{getOrderInfo().salesAmount}}</p>
+    <p>Expected Amount in sales : N{{getOrderInfo().salesAmount}}</p>
     <br>
-    <p>Estimated Profit : {{getOrderInfo().profit}}</p>
+    <p>Estimated Profit : N{{getOrderInfo().profit}}</p>
   </div>
   <button (click)="routeToOrders()" >Back to your order</button>
 </div>

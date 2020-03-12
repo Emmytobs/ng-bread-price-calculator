@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div *ngFor="let order of orders">
     <h3>{{order.name}}</h3>
     <h5>Size: {{order.size}}</h5>
@@ -7,7 +7,25 @@
     <hr>
     <br>
   </div>
-</div>
+</div> -->
+
+<table mdbTable>
+  <thead class="black white-text">
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let order of orders">
+      <th scope="row"> </th>
+      <td>{{order.name}}</td>
+      <td>{{order.size}}</td>
+      <td>{{order.quantity}}</td>
+      <td>{{order.purchaseprice}}</td>
+      <td>{{order.sellingprice}}</td>
+    </tr>
+  </tbody>
+</table>
 
 
 <div>

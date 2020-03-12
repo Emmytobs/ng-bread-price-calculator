@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { BreadListComponent } from './bread-list/bread-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     CreateOrderComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    BreadListComponent
   ],
   imports: [
     BrowserModule,

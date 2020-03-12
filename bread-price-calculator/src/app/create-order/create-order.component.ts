@@ -16,7 +16,7 @@ export class CreateOrderComponent implements OnInit {
   breadSizes: string[];
 
   name: FormControl;
-  size: FormControl;
+  size: FormControl
   quantity: FormControl;
   orderForm: FormGroup;
 
@@ -43,9 +43,9 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit() {
     this.breadNames = this.breadService.getBreadNames();
 
-    this.name = new FormControl('', Validators.required)
-    this.size = new FormControl('', Validators.required)
-    this.quantity = new FormControl('', Validators.required)
+    this.name = new FormControl('', Validators.required);
+    this.size = new FormControl('', Validators.required);
+    this.quantity = new FormControl('', Validators.required);
 
     this.orderForm = new FormGroup({
       name: this.name,

@@ -13,6 +13,7 @@ import { BreadService } from '../create-order/bread.service';
 export class OrderSummaryComponent implements OnInit {
 
   orders = this.orderService.getOrders();
+  headElements = ['','Name', 'Size', 'Quantity', 'Cost per loaf', 'Sale price per loaf']
   constructor(private orderService: OrderService, private router: Router, private breadService: BreadService) { }
 
   routeToOrders() {

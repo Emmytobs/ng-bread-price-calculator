@@ -1,48 +1,48 @@
-
-<div *ngIf="!orderMode">
-  <form [formGroup]="orderForm" (ngSubmit)="addToOrder(orderForm.value)" >
+<div class ="order-form-container" *ngIf="!orderMode">
+  <form class="order-form" [formGroup]="orderForm" (ngSubmit)="addToOrder(orderForm.value)" >
     <div>
-      <select name="breadName" formControlName="name" (blur)="addBreadSize(name.value)">
+      <select name="breadName" class="bread-name" formControlName="name" (blur)="addBreadSize(name.value)">
         <option value="" disabled selected>Select bread</option>
         <option *ngFor="let breadName of breadNames">{{breadName}}</option>
       </select>
-      <select name="breadSize" formControlName="size">
+    </div>
+    <div>
+      <select name="breadSize" class="bread-size" formControlName="size">
         <!-- Populate the breadSizes options only when a certain bread name has been selected -->
         <option value="" disabled selected>Choose the size</option>
         <option *ngFor="let breadSize of breadSizes">{{breadSize}}</option>
       </select>
-      <input formControlName="quantity" type="number" placeholder="Number of loaves">
-      <!--  -->
-      <!--  -->
-      <br>
-      <br>
-      <button>Add to Order</button>
-      <!-- <br>
-      <br>
-      <button>Calculate bread amount</button> -->
+    </div>
+    <div>
+      <label for="">Number of loaves</label>
+      <input class='loaves-input' formControlName="quantity" type="number">
+    </div>
+    <!--
+      Add an error message if the user submits an invalid order
+      <div *ngIf="orderForm.invalid">
+      Please fill in all fields
+    </div> -->
+    <div>
+      <button class="add-to-order">Add to Order</button>
     </div>
   </form>
-
-  <div>
-    <button (click)="orderMode = true">View Orders</button>
-  </div>
-
+  <button class="view-orders" (click)="viewOrders()">View Orders <span>{{orders.length}}</span></button>
 </div>
 
-
 <div *ngIf="orderMode">
-  <div>
-    <button (click)="orderMode = false" >&lsaquo; Back to Orders</button>
+  <button (click)="orderMode = false" class='back-to-orders' >&lsaquo; Back to Orders</button>
+  <div class="order-list-container">
+      <div class="order-list">
+          <div *ngFor="let order of orders">
+              <p class='bread-name'><span>Name: </span>{{order.name}}</p>
+              <div class="size-quantity-container">
+                  <p><span>Size: </span>{{order.size}}</p>
+                  <p><span>Quantity: </span>{{order.quantity}}</p>
+              </div>
+          </div>
+      </div>
+      <button [routerLink]="['/order/summary']" class='calculate-order'>Calculate Order</button>
   </div>
-  <div *ngFor="let order of orders">
-    <p>{{order.name}}</p>
-    <p>{{order.size}} </p>
-    <p>{{order.quantity}}</p>
-    <hr>
-    <br>
-  </div>
-
-  <button [routerLink]="['/order/summary']" >Calculate Order</button>
 </div>
 
 <!-- <app-order-summary *ngIf="goToOrders()" ></app-order-summary> -->

@@ -1,0 +1,12 @@
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-decoration: none;
+  background-color: #ccc;
+  color: #111312;
+  padding: 12px 30px;
+  border: 0;
+  cursor: pointer;
+}

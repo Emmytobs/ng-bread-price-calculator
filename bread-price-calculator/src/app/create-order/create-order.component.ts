@@ -16,12 +16,12 @@ export class CreateOrderComponent implements OnInit {
   breadSizes: string[];
 
   name: FormControl;
-  size: FormControl
+  size: FormControl;
   quantity: FormControl;
   orderForm: FormGroup;
 
   orderMode: boolean;
-  orders = this.orderService.displayOrders();
+  orders: IOrder[] = this.orderService.displayOrders();
 
   constructor(private breadService: BreadService, private router: Router, private orderService: OrderService) {}
 
@@ -30,14 +30,21 @@ export class CreateOrderComponent implements OnInit {
   }
 
   addToOrder(formValues) {
+    if (this.orderForm.invalid) {
+      alert('Your order is not complete. Please fill in all fields.');
+      return;
+    }
     this.orderService.addOrder(formValues);
-    // const breadSize = formValues.size;
-    // const breadQuantity = formValues.quantity;
-    // this.router.navigate(['order/summary']);
-    // return {
-    //   breadSize,
-    //   breadQuantity,
-    // };
+  }
+
+  viewOrders(): any {
+    const orders: IOrder[] = this.orderService.displayOrders();
+    if (orders.length === 0) {
+      // Add a custom validation message
+      alert('You have no orders!')
+      return;
+    }
+    this.orderMode = true;
   }
 
   ngOnInit() {

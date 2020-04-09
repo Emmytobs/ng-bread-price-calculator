@@ -7,7 +7,7 @@ import { BreadService } from './bread.service';
 })
 export class OrderService {
 
-  orders = []
+  orders = [];
 
   constructor(private breadService: BreadService) { }
 

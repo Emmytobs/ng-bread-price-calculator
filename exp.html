@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+        .order-form-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .order-form {
+            padding: 30px 42px;
+            width: 50%;
+            background: #333232;
+            border-radius: 5px;
+        }
+        .order-form div {
+            padding: 0;
+            margin: 16px 0px;
+            text-align: center;
+        }
+        .order-form select {
+            padding: 4px;
+            background: #ccc;
+        }
+
+        .order-form select option {
+            padding: 4px;    
+        }
+        label {
+            line-height: 30px;
+            color: #fff;
+            display: block;
+        }
+        .loaves-input {
+            width: 40%;
+            background: #ccc;
+            color: #000;
+            border: 0;
+            padding: 10px;
+            text-align: center;
+        }
+        button {    
+            padding: 12px;
+            border-radius: 20px;
+            background: #ccc;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .view-orders {
+            position: absolute;
+            bottom: 5%;
+            right: 10%;
+            cursor: pointer;
+        }
+
+        .view-orders > span {
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: inherit;
+            top: -7px;
+            right: 2px;
+            padding: 5px;
+            background: #333232;
+            color: #fff;
+        }
+    </style>
+
+<div class ="order-form-container" *ngIf="!orderMode">
+    <form class="order-form" [formGroup]="orderForm" (ngSubmit)="addToOrder(orderForm.value)" >
+      <div>
+        <select name="breadName" class="bread-name" formControlName="name" (blur)="addBreadSize(name.value)">
+          <option value="" disabled selected>Select bread</option>
+          <option *ngFor="let breadName of breadNames">{{breadName}}</option>
+        </select>
+      </div>
+      <div>
+        <select name="breadSize" class="bread-size" formControlName="size">
+          <!-- Populate the breadSizes options only when a certain bread name has been selected -->
+          <option value="" disabled selected>Choose the size</option>
+          <option *ngFor="let breadSize of breadSizes">{{breadSize}}</option>
+        </select>
+      </div>
+      <div>
+        <label for="">Number of loaves</label>
+        <input class='loaves-input' formControlName="quantity" type="number">
+      </div>
+      <!--
+        Add an error message if the user submits an invalid order
+        <div *ngIf="orderForm.invalid">
+        Please fill in all fields
+      </div> -->
+      <div>
+        <button>Add to Order</button>
+      </div>
+    </form>
+</div>
+<button class="view-orders" (click)="viewOrders()">View Orders <span>0</span></button>
+
+  
+    
+    
+      
+</body>
+</html>

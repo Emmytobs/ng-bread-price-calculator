@@ -1,0 +1,139 @@
+/* For the order form */
+
+.order-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.order-form {
+  padding: 30px 42px;
+  width: 80%;
+  background: #333232;
+  border-radius: 5px;
+}
+.order-form div {
+  padding: 0;
+  margin: 16px 0px;
+  text-align: center;
+}
+.order-form select {
+  padding: 4px;
+  background: #ccc;
+  width: 100%;
+}
+
+.order-form select option {
+  padding: 4px;
+}
+label {
+  font-size: 14px;
+  width: 100%;
+  color: #fff;
+  display: block;
+}
+.loaves-input {
+  width: 100%;
+  background: #ccc;
+  color: #000;
+  border: 0;
+  padding: 10px;
+  text-align: center;
+}
+/* Utility Class */
+button {
+  padding: 12px;
+  border-radius: 20px;
+  background: #ccc;
+  border: 0;
+  cursor: pointer;
+}
+
+.add-to-order {
+  padding: 6px;
+}
+
+.view-orders {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  cursor: pointer;
+}
+
+.view-orders > span {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: inherit;
+  top: -7px;
+  right: 2px;
+  padding: 5px;
+  background: #333232;
+  color: #fff;
+}
+
+
+/* For the list of orders */
+.back-to-orders {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  background: #ccc;
+  cursor: pointer;
+  border: 0;
+  padding: 6px;
+}
+
+.order-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.order-list {
+  padding: 12px 4px;
+  background: #ffffff;
+  height: 70vh;
+  width: 70%;
+  overflow: auto;
+  display: block;
+}
+.order-list > div {
+  text-align: center;
+  background: #dddada;
+  padding: 6px 0px;
+  margin: 6px 0px;
+}
+.order-list .bread-name {
+  text-align: left;
+  padding-left: 12px;
+  margin: 0;
+  color: #fff;
+}
+.order-list .size-quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 12px
+}
+.order-list .size-quantity-container p {
+  flex: 1;
+}
+
+.calculate-order {
+  background: #ccc;
+  border: 0;
+  cursor: pointer;
+  padding: 12px 30px;
+  margin-top: 12px;
+}
+
+/* .viewOrders {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  background: #0080009a;
+  padding: 10px;
+} */
